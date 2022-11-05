@@ -1,11 +1,14 @@
+import { EmployeeViews } from "./EmployeeViews"
+import { CustomerViews } from "./CustomerViews"
+
 export const ApplicationViews = () => {
 
     const localProjectUser = localStorage.getItem("project_user")
     const projectUserObject = JSON.parse(localProjectUser)
   
     if(projectUserObject.staff){
-      return "<h1>Staff Views</h1>"
+      return <EmployeeViews/>
     } else {
-      return "<h1>Patron Views</h1>"
+      return <CustomerViews/>
     }
   }
