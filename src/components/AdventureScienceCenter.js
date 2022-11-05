@@ -5,7 +5,7 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
 
-export const AdvenutureScienceCenter= () => {
+export const AdventureScienceCenter= () => {
 	return <Routes>
 		<Route path="/login" element={<Login />} />
 		<Route path="/register" element={<Register />} />
