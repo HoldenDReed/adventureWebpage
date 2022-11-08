@@ -9,7 +9,7 @@ export const EventsList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:8088/events?eventCategoriesId=${eventTypeId}`
+        `http://localhost:8088/events?_expand=eventCategories&eventCategoriesId=${eventTypeId}`
       );
       const eventsArray = await response.json();
       setEvents(eventsArray);
@@ -20,6 +20,7 @@ export const EventsList = () => {
   return (
     <>
       <article className="events">
+        <h2>{events[0]?.eventCategories?.type}</h2>
         {events.map((event) => (
           <Event
             key={`event--${event.id}`}
