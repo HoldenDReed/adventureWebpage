@@ -4,9 +4,9 @@ export const Event = ({ id, name, description, date, img }) => {
   return (
     <section className="event">
       <div>
-        <Link to={`/eventDetails/${id}`}>Name: {name}</Link>
+        <Link to={`/eventDetails/${id}`}>Event: {name}</Link>
       </div>
-      <div>Description: {description}</div>
+      <div>{description.substring(0, 30)}...</div>
       <div>Date: {date}</div>
       <div>
         <img src={img}></img>
