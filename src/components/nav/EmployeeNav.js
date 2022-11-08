@@ -9,6 +9,11 @@ export const EmployeeNav = () => {
   return (
     <ul className="navbar">
       <li className="navbar__item active">
+        <Link className="navbar__link" to="/">
+          Home
+        </Link>
+      </li>
+      <li className="navbar__item active">
         <Link className="navbar__link" to="/add/event">
           Add Event
         </Link>
