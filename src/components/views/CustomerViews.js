@@ -15,7 +15,7 @@ export const CustomerViews = () => {
           <>
             <h1>Adventure Science Center</h1>
             <div>EXPLORE AND DISCOVER WITH US.</div>
-            <h2>Welcome, User ID {userObject.id}</h2>
+            <h2>Welcome, {userObject.fullName}</h2>
 
             <Outlet />
           </>
