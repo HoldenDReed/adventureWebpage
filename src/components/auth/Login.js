@@ -20,6 +20,7 @@ export const Login = () => {
             JSON.stringify({
               id: user.id,
               staff: user.isStaff,
+              fullName: user.fullName,
             })
           );
 

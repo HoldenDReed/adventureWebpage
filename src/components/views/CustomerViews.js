@@ -3,6 +3,7 @@ import { EventDetails } from "../events/EventDetails";
 import { EventsList } from "../events/EventsList";
 import { Favorites } from "../favorites/Favorites";
 import { HomePage } from "../homePage/HomePage";
+import { ImageUploader } from "../utilities/ImageUploader";
 export const CustomerViews = () => {
   const localUser = localStorage.getItem("project_user");
   const userObject = JSON.parse(localUser);
@@ -15,7 +16,7 @@ export const CustomerViews = () => {
           <>
             <h1>Adventure Science Center</h1>
             <div>EXPLORE AND DISCOVER WITH US.</div>
-            <h2>Welcome, User ID {userObject.id}</h2>
+            <h2>Welcome, {userObject.fullName}</h2>
 
             <Outlet />
           </>
@@ -27,6 +28,7 @@ export const CustomerViews = () => {
         <Route path="favorites" element={<Favorites />} />
         <Route path="events" element={<EventsList />} />
         <Route path="homePage" element={<HomePage />} />
+        <Route path="imageUpload" element={<ImageUploader />} />
       </Route>
     </Routes>
   );
