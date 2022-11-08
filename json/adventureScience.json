@@ -1,0 +1,149 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Dion Stoade",
+      "email": "dstoade0@cornell.edu",
+      "isStaff": false
+    },
+    {
+      "id": 2,
+      "fullName": "Windy Thorneloe",
+      "email": "wthorneloe1@usa.gov",
+      "isStaff": false
+    },
+    {
+      "id": 3,
+      "fullName": "Hillie Phillpotts",
+      "email": "hphillpotts2@rakuten.co.jp",
+      "isStaff": false
+    },
+    {
+      "id": 4,
+      "fullName": "Helenelizabeth Passfield",
+      "email": "hpassfield7@netvibes.com",
+      "isStaff": true
+    },
+    {
+      "id": 5,
+      "fullName": "Franchot Slator",
+      "email": "fslator8@51.la",
+      "isStaff": true
+    },
+    {
+      "id": 6,
+      "fullName": "Renaud Erbe",
+      "email": "rerbe9@psu.edu",
+      "isStaff": true
+    },
+    {
+      "email": "jeremy@bakker.com",
+      "fullName": "Jeremy Bakker",
+      "isStaff": true,
+      "id": 7
+    },
+    {
+      "fullName": "Holden D Reed",
+      "email": "holdendreed@hotmail.com",
+      "isStaff": true,
+      "id": 8
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "eventCategoriesId": 1,
+      "name": "MAX FLIGHT: FULL MOTION SIMULATOR",
+      "description": "Get ready for a gravity-defying adventure!",
+      "date": "Every-day",
+      "img": "https://www.adventuresci.org/wp-content/uploads/2021/01/MaxFlight_2_DSC_2959-300x169.jpg"
+    },
+    {
+      "id": 2,
+      "eventCategoriesId": 2,
+      "name": "INNOVATION INCUBATOR",
+      "description": "Innovation Incubator (I2) is Adventure Science Center’s permanent, high-tech makerspace",
+      "date": "THURSDAY - MONDAY, 9 AM - 2 PM; SATURDAY, 9 AM - 5 PM",
+      "img": "https://www.adventuresci.org/wp-content/uploads/2021/06/InnovationIncubator_WebsiteImage-300x169.jpeg"
+    },
+    {
+      "id": 3,
+      "eventCategoriesId": 3,
+      "name": "Winter Break Camp 2022",
+      "description": "This camp week will be jam-packed with chemistry, physics, biology, engineering, robotics, and more!",
+      "date": "December 19-23, 2022",
+      "img": "https://images.unsplash.com/photo-1515040971733-a71e8e57ce78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+    },
+    {
+      "id": 4,
+      "eventCategoriesId": 4,
+      "name": "Night Watch",
+      "description": "A live tour of the current night sky.",
+      "date": "Thursdays, Fridays, Sundays, Mondays, 9am to 3pm",
+      "img": "https://www.adventuresci.org/wp-content/uploads/2022/06/nightwatch-banner-300x169.png"
+    }
+  ],
+  "eventCategories": [
+    {
+      "id": 1,
+      "type": "Exhibits"
+    },
+    {
+      "id": 2,
+      "type": "Activites"
+    },
+    {
+      "id": 3,
+      "type": "Camps"
+    },
+    {
+      "id": 4,
+      "type": "Planetarium"
+    }
+  ],
+  "favorites": [
+    {
+      "id": 1,
+      "userId": 1,
+      "eventId": 1
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "eventId": 1
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "eventId": 2
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "eventId": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "eventId": 1,
+      "datePosted": "10-27-2020",
+      "comment": "My son fell of this ride, 10/10."
+    },
+    {
+      "id": 1,
+      "userId": 2,
+      "eventId": 2,
+      "datePosted": "10-30-2020",
+      "comment": "I dont believe in science 1/10."
+    },
+    {
+      "id": 1,
+      "userId": 3,
+      "eventId": 2,
+      "datePosted": "11-01-2020",
+      "comment": "Pizza was amazing, and this website is costing tax payers several hundred dollars, why are we suporting a institute that creates lies. Also my package was never delivered. 9/10."
+    }
+  ]
+}
