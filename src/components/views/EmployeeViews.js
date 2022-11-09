@@ -3,6 +3,7 @@ import { EventForm } from "../events/EventForm";
 import { EventDetails } from "../events/EventDetails";
 import { EventsList } from "../events/EventsList";
 import { HomePage } from "../homePage/HomePage";
+import { EventEdit } from "../events/EventEdit";
 
 export const EmployeeViews = () => {
   const localUser = localStorage.getItem("project_user");
@@ -16,7 +17,7 @@ export const EmployeeViews = () => {
           <>
             <h1>Adventure Science Center</h1>
             <div>EXPLORE AND DISCOVER WITH US.</div>
-            <h2>Welcome, User ID {userObject.fullName}</h2>
+            <h2>Welcome, {userObject.fullName}</h2>
 
             <Outlet />
           </>
@@ -27,6 +28,7 @@ export const EmployeeViews = () => {
         <Route path="/eventDetails/:eventId" element={<EventDetails />} />
         <Route path="add/event" element={<EventForm />} />
         <Route path="events" element={<EventsList />} />
+        <Route path="eventEdit/:eventId" element={<EventEdit />} />
       </Route>
     </Routes>
   );
