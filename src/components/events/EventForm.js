@@ -43,7 +43,7 @@ export const EventForm = () => {
             <h2>New Product Form</h2>
             <fieldset>
                 <div className="form-group">
-                    <label>Event Type:</label>
+                    <label htmlFor="type">Event Type:</label>
                     <select required autoFocus value={newEvent.eventCategoriesId} onChange={
                         (evt) => {
                             const copy = { ...newEvent }
@@ -60,7 +60,7 @@ export const EventForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label>Event name:</label>
+                    <label htmlFor="name">Event name:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -78,7 +78,7 @@ export const EventForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label>Date:</label>
+                    <label htmlFor="date">Date:</label>
                     <input
                         required autoFocus
                         type="date"
@@ -96,7 +96,7 @@ export const EventForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label>Photo URL:</label>
+                    <label htmlFor="photo">Photo URL:</label>
                     <input
                         required autoFocus
                         type="url"
@@ -117,7 +117,7 @@ export const EventForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label for="descriptionBox">Enter description:</label>
+                    <label htmlFor="description">Enter description:</label>
                     <textarea
                         className="descriptionBox"
                         required autoFocus
