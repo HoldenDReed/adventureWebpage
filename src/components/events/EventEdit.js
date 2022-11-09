@@ -1,52 +1,62 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
-
-export const EventForm = () => {
-
-    const [newEvent, update] = useState({
-      eventCategoriesId: 1,
-      name: "",
-      description: "",
-      date: "",
-      img: ""
-    });
-
+export const EventEdit = () => {
     const navigate = useNavigate()
+    const {eventId} = useParams()
 
-    const handleSaveButtonClick = (event) => {
-        event.preventDefault()
+    const [event, update] = useState({
+        eventCategoriesId: 1,
+        name: "",
+        description: "",
+        date: "",
+        img: ""
+    })
 
+    useEffect(
+        () => {
+            const fetchEvent = async () => {
+                const response = await fetch(`http://localhost:8088/events/${eventId}`)
+                const eventObject = await response.json()
+                update(eventObject)
+            }
+            fetchEvent()
+        },
+        []
+    )
+
+    const handleSaveButtonClick = () => {
         const eventToSendToAPI = {
-            name: newEvent.name,
-            eventCategoriesId: newEvent.eventCategoriesId,
-            description: newEvent.description,
-            date: newEvent.date,
-            img: newEvent.img
+            name: event.name,
+            eventCategoriesId: event.eventCategoriesId,
+            description: event.description,
+            date: event.date,
+            img: event.img
         }
 
-        return fetch(`http://localhost:8088/events`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(eventToSendToAPI)
-        })
-            .then(response => response.json())
-            .then(() => {
-                navigate(`/eventType/${newEvent.eventCategoriesId}`)
-            })
+        const sendEvent = async () => {
+            const options = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(eventToSendToAPI)
+            }
+            await fetch (`http://localhost:8088/events/${event.id}`, options)
+            navigate(`/eventDetails/${event.id}`)
+        }
+        sendEvent()
     }
 
     return (
         <form>
-            <h2>New Product Form</h2>
+            <h2>Edit Event Details</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="type">Event Type:</label>
-                    <select required autoFocus value={newEvent.eventCategoriesId} onChange={
+                    <select required autoFocus value={event.eventCategoriesId} onChange={
                         (evt) => {
-                            const copy = { ...newEvent }
+                            const copy = { ...event }
                             copy.eventCategoriesId = parseInt(evt.target.value)
                             update(copy)
                         }
@@ -65,9 +75,9 @@ export const EventForm = () => {
                         required autoFocus
                         type="text"
                         placeholder="Event Name"
-                        value={newEvent.name}
+                        value={event.name}
                         onChange={(evt) => {
-                            const copy = { ...newEvent }
+                            const copy = { ...event }
                             copy.name = evt.target.value
                             update(copy)
                         }
@@ -83,10 +93,10 @@ export const EventForm = () => {
                         required autoFocus
                         type="date"
                         placeholder="Description"
-                        value={newEvent.date}
+                        value={event.date}
                         onChange={
                             (evt) => {
-                              const copy = { ...newEvent }
+                              const copy = { ...event }
                               copy.date = evt.target.value
                               update(copy)
                             }
@@ -100,14 +110,14 @@ export const EventForm = () => {
                     <input
                         required autoFocus
                         type="url"
-                        value={newEvent.img}
+                        value={event.img}
                         name="url" id="url"
                         placeholder="https://example.com"
                         pattern="https://.*" 
                         size="30"
                         onChange={
                             (evt) => {
-                              const copy = { ...newEvent }
+                              const copy = { ...event }
                               copy.img = evt.target.value
                               update(copy)
                             }
@@ -123,10 +133,10 @@ export const EventForm = () => {
                         required autoFocus
                         type="text-area"
                         placeholder="Description"
-                        value={newEvent.description}
+                        value={event.description}
                         onChange={
                             (evt) => {
-                              const copy = { ...newEvent }
+                              const copy = { ...event }
                               copy.description = evt.target.value
                               update(copy)
                             }
@@ -138,7 +148,7 @@ export const EventForm = () => {
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                Submit New Event
+                Submit
             </button>
         </form>
     )

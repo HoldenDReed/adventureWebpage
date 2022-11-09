@@ -1,8 +1,12 @@
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 export const EventDetails = () => {
+
+  const localUser = localStorage.getItem("project_user");
+  const userObject = JSON.parse(localUser);
+  
 const [event, setEvent] = useState({})
-// const [scratchEvent, setScratchEvent] = useState([])
 const {eventId} = useParams()
 useEffect(
   () => {
@@ -17,7 +21,15 @@ useEffect(
   [eventId]
 )
 return <section className="events">
+
   <header>{event?.name}</header>
+  {
+        userObject.staff
+        ? <Link className="btn event_edit" to={`/eventEdit/${eventId}`}>
+            Edit
+          </Link>
+        : ""
+      }
   <div>Date:{event?.date}</div>
   <div>Description:{event?.description}</div>
   <div>
@@ -25,3 +37,4 @@ return <section className="events">
     </div>
 </section>
 }
+
