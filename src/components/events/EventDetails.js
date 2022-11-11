@@ -39,20 +39,22 @@ useEffect(
   )
 
     const [newComment, update] = useState({
-      datePosted: "10-10-2022",
+      datePosted: "",
       comment: "",
       eventId: `${eventId}`
     });
   
-    const navigate = useNavigate();
-  
     const handleSaveButtonClick = (event) => {
       event.preventDefault();
+
+      const formattedDateStamp = new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+      const formattedTimeStamp = new Date().toLocaleTimeString("en-US");
+      const formattedDateTimeStamp = formattedDateStamp + " " + formattedTimeStamp
   
       const commentToSendToAPI = {
         userId: userObject.id,
         eventId: parseInt(newComment.eventId),
-        datePosted: newComment.datePosted,
+        datePosted: formattedDateTimeStamp,
         comment: newComment.comment,
       };
   
@@ -65,9 +67,10 @@ useEffect(
       })
         .then((response) => response.json())
         .then(() => {
-          navigate(`/eventDetails/${eventId}`);
+          window.location.reload(false);
         });
     };
+
 
 return <section className="events">
 
@@ -117,10 +120,26 @@ return <section className="events">
     <footer className="comment">
       <div>
         {comments.map((comment) => (
-          <div>
+          <div key={`comment--${comment.id}`}>
             <div>{comment.datePosted}</div>
             <div>{comment.user.fullName}</div>
             <div>{comment.comment}</div>
+            {
+              userObject.id === comment.userId
+              ? <button
+                onClick={() => 
+                  {
+                    const deleteComment = async () => {
+                    await fetch(`http://localhost:8088/comments/${comment.id}`, {method: "DELETE"})
+                    window.location.reload(false)
+                  }
+                    deleteComment()
+                  }
+                }
+                className="btn btn-primary"
+              >Delete</button>
+              : ""
+            }
           </div>
         ))}
       </div>
