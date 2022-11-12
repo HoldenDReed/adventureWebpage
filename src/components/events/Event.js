@@ -18,6 +18,16 @@ export const Event = ({ id, name, description, date, img }) => {
         <img src={img}></img>
       </div>
       <footer>
+        {
+          userObject.staff
+        ? <>
+        <button onClick={() => {
+          fetch(`http://localhost:8088/events/${id}`, {
+            method: "DELETE"})
+            .then (window.location.reload(false))
+        }}
+        >Delete Post</button></>
+        : <>
         <button onClick={() => {
           fetch(`http://localhost:8088/favorites`, {
             method: "POST",
@@ -30,7 +40,9 @@ export const Event = ({ id, name, description, date, img }) => {
             })
           })
         }}
-        >Add to Favorites</button>
+        >Add to Favorites</button></>
+        
+      } 
       </footer>
     </section>
   );
