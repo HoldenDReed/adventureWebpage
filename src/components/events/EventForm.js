@@ -35,13 +35,12 @@ export const EventForm = () => {
         navigate(`/eventType/${newEvent.eventCategoriesId}`);
       });
   };
-
   return (
     <form>
       <h2>New Product Form</h2>
       <fieldset>
         <div className="form-group">
-          <label>Enter event Type:</label>
+          <label htmlFor="type">Enter event Type:</label>
           <select
             required
             autoFocus
@@ -61,7 +60,7 @@ export const EventForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label>Enter event name:</label>
+          <label htmlFor="name">Enter event name:</label>
           <input
             required
             autoFocus
@@ -79,7 +78,7 @@ export const EventForm = () => {
 
       <fieldset>
         <div className="form-group">
-          <label>Enter date:</label>
+          <label htmlFor="date">Enter date:</label>
           <input
             required
             autoFocus
@@ -96,7 +95,7 @@ export const EventForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label>Enter photo URL:</label>
+          <label htmlFor="url">Enter photo URL:</label>
           <input
             required
             autoFocus
@@ -133,7 +132,6 @@ export const EventForm = () => {
           />
         </div>
       </fieldset>
-
       <button
         onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
         className="btn btn-primary"

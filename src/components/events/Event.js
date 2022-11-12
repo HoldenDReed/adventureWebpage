@@ -6,6 +6,25 @@ export const Event = ({ id, name, description, date, img }) => {
   const localUser = localStorage.getItem("project_user");
   const userObject = JSON.parse(localUser);
 
+  const [isFavorite, setIsFavorite] = useState(false)
+
+  useEffect(
+    () => {
+      const checkIfFavorite = async () => {
+        const response = await fetch(`http://localhost:8088/favorites?userId=${userObject.id}&eventId=${id}`)
+        const responseJSON = await response.json()
+        const responseLength = await responseJSON.length
+        // console.log(responseLength)
+        if (await responseLength === 0) {
+          setIsFavorite(false)
+        } else {
+          setIsFavorite(true)
+        }
+      }
+      checkIfFavorite()
+    },
+    []
+  )
 
   return (
     <section className="event">
@@ -18,19 +37,23 @@ export const Event = ({ id, name, description, date, img }) => {
         <img src={img}></img>
       </div>
       <footer>
-        <button onClick={() => {
-          fetch(`http://localhost:8088/favorites`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              userId: userObject.id,
-              eventId: id
-            })
-          })
-        }}
-        >Add to Favorites</button>
+        {
+          !isFavorite && !userObject.staff
+          ? <button onClick={() => {
+              fetch(`http://localhost:8088/favorites`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  userId: userObject.id,
+                  eventId: id
+                })
+              })
+            }}
+            >Add to Favorites</button>
+            : ""
+        }
       </footer>
     </section>
   );
