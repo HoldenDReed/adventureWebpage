@@ -24,11 +24,13 @@
   label{
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
     color: #fff;
+    font-size: larger;
     font-variant: small-caps;
     font-weight: bolder;
   }
   button {
     font-weight: bolder;
+    font-size: larger;
     font-variant: small-caps;
     color: #fff;
     border: #ced4da solid;
@@ -71,7 +73,7 @@
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 2px solid #ced4da;
     border-radius: .25rem;
     -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
