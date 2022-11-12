@@ -1,10 +1,15 @@
 .h1, h1 {
+  text-align: center;
     font-size: 2.5rem;
     color: #fff;
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
     font-family: Arial, Helvetica, sans-serif;
+    border: #ced4da solid;
+    border-radius: 15px;
    font-variant: small-caps;
     font-weight:bolder
+    
+    
     
    
    
@@ -12,28 +17,35 @@
   }
   h2 {
     color: #fff;
+    text-align: center;
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
     font-family: Arial, Helvetica, sans-serif;
     font-variant: small-caps;
     border: #ced4da solid;
+    border-radius: 15px;
     font-weight: bolder;
   }
   body {
     background-image: url(https://img.freepik.com/free-vector/color-seamless-space-pattern_102902-2360.jpg?w=1380&t=st=1668270878~exp=1668271478~hmac=e60d21126f66a2e4ad8fea5ca6f02a0195f0dc7f827485dae152399a136ddc47);
   }
-  label{
+  label {
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+    text-align: center;
     color: #fff;
+    border: #ced4da solid;
+    border-radius: 15px;
     font-size: larger;
     font-variant: small-caps;
     font-weight: bolder;
   }
   button {
     font-weight: bolder;
+    text-align: center;
     font-size: larger;
     font-variant: small-caps;
     color: #fff;
     border: #ced4da solid;
+    border-radius: 15px;
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%)
     
     
@@ -41,20 +53,28 @@
     
   }
   fieldset {
+   
     min-width: 0;
-    padding: 1rem 0;
-    margin: 0;
+    padding: 50px;
+    margin: 50px;
     border: 0;
+   
   }
   
   .form--login {
     display: inline-block;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
   }
   
   .form--login > fieldset > input[type="email"] {
-    width: 25em;
+    margin: 10px;
+    padding: 10px;
+    border: #d54633 solid;
+    ;
+    
+    
+   
   }
   
   .label--login {
@@ -70,13 +90,12 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 2px solid #ced4da;
-    border-radius: .25rem;
-    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
   }
   
   .container--login {
@@ -84,16 +103,30 @@
   }
   
   .form--login {
+    text-align: center;
     background-position-x: right;
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
+    border: #ced4da solid;
+    border-radius: 15px;
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    
   }
   
   .button--close {
     position: relative;
     bottom: -2rem;
+  }
+
+  .link--register {
+    margin:  30px;
+    text-align: center;
+    border: #ced4da solid;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+
+   
   }
