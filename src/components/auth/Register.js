@@ -76,7 +76,7 @@ export const Register = (props) => {
                         setCustomer(copy)
                     }}
                         type="checkbox" id="isParent" />
-                    <label htmlFor="email"> I am a parent </label>
+                    <label htmlFor="email"> Is staff </label>
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>
