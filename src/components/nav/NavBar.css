@@ -1,5 +1,5 @@
-
-  .navbar {
+.navbar {
+    
     list-style-type: none;
     display: flex;  
     padding: 18px 0;
@@ -10,17 +10,18 @@
     box-shadow: 3px 3px 20px #ff3352;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    justify-content: space-evenly;
   }
  .navbar__item.navbar__logout{
     list-style-type: none;
     display: flex;
-    padding:  0px 1480px;
+    /* text-align: right; */
+    /* padding:  0px 22rem; */
     color: wheat;
   }
   .navbar__item.active { 
     list-style-type: none;
     display: flex;
     padding:  0px 10px;
-    
   }
-  
+ 
