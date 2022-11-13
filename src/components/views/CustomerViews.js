@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom";
+import { CommentEdit } from "../comments/CommentEdit";
 import { EventDetails } from "../events/EventDetails";
 import { EventsList } from "../events/EventsList";
 import { Favorites } from "../favorites/Favorites";
@@ -26,6 +27,7 @@ export const CustomerViews = () => {
         <Route path="/eventType/:eventTypeId" element={<EventsList />} />
         <Route path="/eventDetails/:eventId" element={<EventDetails />} />
         <Route path="favorites" element={<Favorites />} />
+        <Route path="commentEdit/:commentId" element={<CommentEdit />} />
         <Route path="events" element={<EventsList />} />
         <Route path="homePage" element={<HomePage />} />
         <Route path="imageUpload" element={<ImageUploader />} />

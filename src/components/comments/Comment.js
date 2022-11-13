@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const Comment = ({ id, datePosted, fullName, comment, userId }) => {
     const localUser = localStorage.getItem("project_user");
     const userObject = JSON.parse(localUser);
+
+    const navigate = useNavigate()
 
     const [userLikes, setUserLikes] = useState([])
     const [userLikesNamesOnly, setUserLikesNamesOnly] = useState([])
@@ -83,19 +87,27 @@ export const Comment = ({ id, datePosted, fullName, comment, userId }) => {
                 : <button onClick={() => likeComment()}>👍</button>
             }
             {
-            userObject.id === userId
-            ? <button className="btn btn-primary"
-                onClick={() =>
-                    {
-                        const deleteComment = async () => {
-                            await fetch(`http://localhost:8088/comments/${id}`, {method: "DELETE"})
-                            window.location.reload(false)
+                userObject.id === userId
+                ? <button className="btn comment_edit"
+                    onClick={() => {navigate(`/commentEdit/${id}`)}}>
+                    Edit Comment
+                </button>
+                : ""
+            }
+            {
+                userObject.id === userId
+                ? <button className="btn btn-primary"
+                    onClick={() =>
+                        {
+                            const deleteComment = async () => {
+                                await fetch(`http://localhost:8088/comments/${id}`, {method: "DELETE"})
+                                window.location.reload(false)
+                            }
+                            deleteComment()
                         }
-                        deleteComment()
                     }
-                }
-            >Delete Comment</button>
-            : ""
+                >Delete Comment</button>
+                : ""
             }
     `</div>
   </>
