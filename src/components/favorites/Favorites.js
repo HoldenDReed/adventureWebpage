@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Event } from "../events/Event";
+import "./Favorites.css"
 
 export const Favorites = () => {
   const localUser = localStorage.getItem("project_user");
@@ -67,9 +68,9 @@ export const Favorites = () => {
               await fetch(`http://localhost:8088/favorites?userId=${userObject.id}&eventId=${event.id}`, {method: "DELETE"})
               window.location.reload(false)
             }
-              deleteFavorite()
-            }
+            deleteFavorite()
           }
+        }
           className="btn btn-primary"
         >Delete</button> 
          </>
