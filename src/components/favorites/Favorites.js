@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Event } from "../events/Event";
+import "./Favorites.css"
 
 export const Favorites = () => {
   const localUser = localStorage.getItem("project_user");
