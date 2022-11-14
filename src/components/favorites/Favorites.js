@@ -67,9 +67,9 @@ export const Favorites = () => {
               await fetch(`http://localhost:8088/favorites/${event.id}`, {method: "DELETE"})
               window.location.reload(false)
             }
-              deleteFavorite()
-            }
+            deleteFavorite()
           }
+        }
           className="btn btn-primary"
         >Delete</button> 
          </>
