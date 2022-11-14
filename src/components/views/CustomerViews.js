@@ -18,7 +18,7 @@ export const CustomerViews = () => {
           <>
           <div className="text">
             <h1>Adventure Science Center</h1>
-            <div>For over 75 years, Adventure Science Center has been bringing science to life for students, teachers, and families in Middle Tennessee and across the U.S. The science center offers engaging learning experiences and science fun through hands-on, interactive exhibits, innovative programs, and full-dome productions in the state-of-the-art Sudekum Planetarium.
+            <div className="title">For over 75 years, Adventure Science Center has been bringing science to life for students, teachers, and families in Middle Tennessee and across the U.S. The science center offers engaging learning experiences and science fun through hands-on, interactive exhibits, innovative programs, and full-dome productions in the state-of-the-art Sudekum Planetarium.
 
 Over the next three years, more than 15,000 square feet of exhibit space at Adventure Science Center will evolve into more exciting experiences. From an interactive climbing structure to an immersive exploration of infinity, the science center has something for everyone.
 

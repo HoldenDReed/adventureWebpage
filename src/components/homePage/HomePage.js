@@ -16,11 +16,11 @@ const HomepageLink = ({linkUrl, linkText, linkBg}) => {
   )
 }
 
-export const HomePage = () => {
+export const HomePage= () => {
 
   return (
       <section className="eventsContainer">
-        <HomepageLink linkUrl={`/eventType/1`} linkText="Exhibits" linkBg={Exhibits}/>
+        <HomepageLink linkUrl={`./eventType/1`} linkText="Exhibits" linkBg={Exhibits}/>
         <HomepageLink linkUrl={`/eventType/2`} linkText="Activities" linkBg={Activities}/>
         <HomepageLink linkUrl={`/eventType/3`} linkText="Camps" linkBg={Camps}/>
         <HomepageLink linkUrl={`/eventType/4`} linkText="Planetarium" linkBg={Planet}/>

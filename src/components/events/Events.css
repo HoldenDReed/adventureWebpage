@@ -1,0 +1,38 @@
+
+.text{
+    border: blue;
+}
+
+.events{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.comment{
+    color: darkcyan;
+    background-color: lightblue;
+    border: black solid 2px ;
+    margin-top: 7px;
+    padding: 4px;
+    max-width: 50em;
+}
+
+.commentDescription{
+    padding: 4px;
+    margin-bottom: 7px;
+}
+
+.commentHeader{
+    font-weight: bolder;
+    text-align: center;
+    font-size: larger;
+    font-feature-settings: "smcp";
+    font-variant: small-caps;
+    color: #fff;
+    border: #ced4da solid;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+    width: 40%;
+    margin-bottom: 6px;
+}

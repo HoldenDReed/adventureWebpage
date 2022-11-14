@@ -65,7 +65,7 @@ export const Favorites = () => {
           onClick={() => 
             {
               const deleteFavorite = async () => {
-              await fetch(`http://localhost:8088/favorites/${event.id}`, {method: "DELETE"})
+              await fetch(`http://localhost:8088/favorites?userId=${userObject.id}&eventId=${event.id}`, {method: "DELETE"})
               window.location.reload(false)
             }
             deleteFavorite()
