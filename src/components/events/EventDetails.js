@@ -19,7 +19,7 @@ useEffect(
      .then ((response) => {
       const eventArray = response
          setEvent(eventArray)
-        
+          
      })
   },
   [eventId]

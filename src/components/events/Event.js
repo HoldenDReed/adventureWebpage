@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export const Event = ({ id, name, description, date, img }) => {
 
   const localUser = localStorage.getItem("project_user");
