@@ -9,5 +9,8 @@ h2{
 }
 
 .title{
+    background-color:#182641 ;
+    border: solid #ced4da;
+    border-radius: 15px;
     text-align: center;
 }
