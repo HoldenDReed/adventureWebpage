@@ -4,7 +4,7 @@ import { EventDetails } from "../events/EventDetails";
 import { EventsList } from "../events/EventsList";
 import { HomePage } from "../homePage/HomePage";
 import { EventEdit } from "../events/EventEdit";
-
+import "./CustomerViews.css"
 export const EmployeeViews = () => {
   const localUser = localStorage.getItem("project_user");
   const userObject = JSON.parse(localUser);
@@ -16,7 +16,7 @@ export const EmployeeViews = () => {
         element={
           <>
             <h1>Adventure Science Center</h1>
-            <div>EXPLORE AND DISCOVER WITH US.</div>
+            <div className="title">EXPLORE AND DISCOVER WITH US.</div>
             <h2>Welcome, {userObject.fullName}</h2>
 
             <Outlet />

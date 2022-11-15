@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Event } from "../events/Event";
+import "./Favorites.css"
 
 export const Favorites = () => {
   const localUser = localStorage.getItem("project_user");
   const userObject = JSON.parse(localUser);
+  
+  
 
   
   const [favorites, setFavorites] = useState([])
@@ -45,14 +48,33 @@ export const Favorites = () => {
         <h2>Favorites Page</h2>
         <article className="events">
         {favorites.map((event) => (
+           
+        
+            
+          <>
           <Event
             key={`event--${event.id}`}
             id={event.id}
             name={event.name}
             description={event.description}
             date={event.date}
-            img={event.img}
+            img={event.img} 
+
           />
+          <button
+          onClick={() => 
+            {
+              const deleteFavorite = async () => {
+              await fetch(`http://localhost:8088/favorites?userId=${userObject.id}&eventId=${event.id}`, {method: "DELETE"})
+              window.location.reload(false)
+            }
+            deleteFavorite()
+          }
+        }
+          className="btn btn-primary"
+        >Delete</button> 
+         </>
+        
         ))}
       </article>
       </div>

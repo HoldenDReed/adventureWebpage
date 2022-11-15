@@ -19,7 +19,7 @@ useEffect(
      .then ((response) => {
       const eventArray = response
          setEvent(eventArray)
-        
+          
      })
   },
   [eventId]
@@ -72,7 +72,7 @@ useEffect(
     };
 
 
-return <section className="events">
+return <section className="eventDetails">
 
   <header>{event?.name}</header>
   {
@@ -82,19 +82,20 @@ return <section className="events">
           </Link>
         : ""
       }
-  <div>Date:{event?.date}</div>
-  <div>Description:{event?.description}</div>
+  <div>Date: {event?.date}</div>
+  <div>{event?.description}</div>
   <div>
     <img src ={event.img}></img>
     </div>
 
-<h4>Comment section</h4>
+<div className="commentHeader">Comment section</div>
     <form>
-    <fieldset>
-        <div className="form-group">
+    <div>
+      
           <label htmlFor="descriptionBox">Comment:</label>
+          <div className="commentDescription">
           <textarea
-            className="descriptionBox"
+            className="commentDescriptionBox"
             required
             autoFocus
             type="text-area"
@@ -107,7 +108,7 @@ return <section className="events">
             }}
           />
         </div>
-      </fieldset>
+      </div>
       </form>
 
     <button
@@ -117,10 +118,10 @@ return <section className="events">
         Submit New Comment
       </button>
 
-    <footer className="comment">
+    <footer className="comments">
       <div>
         {comments.map((comment) => (
-          <div key={`comment--${comment.id}`}>
+          <div key={`comment--${comment.id}`} className="comment">
             <div>{comment.datePosted}</div>
             <div>{comment.user.fullName}</div>
             <div>{comment.comment}</div>
