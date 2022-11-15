@@ -1,0 +1,9 @@
+.events{
+    border: blue;
+    background-color: #2C3655;
+    align-items: center center;
+    justify-content: center center;
+}
+.descriptionBox{
+    background-color: white;
+}

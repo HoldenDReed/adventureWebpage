@@ -14,30 +14,11 @@ export const Favorites = () => {
   useEffect(
     () => {
       const fetchFavorites = async () => {
-        const response = await fetch(`http://localhost:8088/users/${userObject.id}?_embed=favorites`)
+        const response = await fetch(`http://localhost:8088/favorites?userId=${userObject.id}&_expand=event`)
         const responseJSON = await response.json()
-        return responseJSON.favorites
+        setFavorites(responseJSON)
       }
-
-      const fetchEvents = async () => {
-        const response = await fetch('http://localhost:8088/events?_expand=eventCategories')
-        return response.json()
-      }
-
-      const filterFavoriteEvents = async () => {
-        const favoritesArray = await fetchFavorites()
-        const eventsArray = await fetchEvents()
-        let userEventsArray = []
-        for (const favorite of favoritesArray) {
-          for (const event of eventsArray) {
-            if (favorite.eventId === event.id) {
-              userEventsArray.push(event)
-            }
-          }
-        }
-        setFavorites(userEventsArray)
-      }
-      filterFavoriteEvents()
+        fetchFavorites()
     },
     []
   )
@@ -53,19 +34,30 @@ export const Favorites = () => {
             
           <>
           <Event
-            key={`event--${event.id}`}
-            id={event.id}
-            name={event.name}
-            description={event.description}
-            date={event.date}
-            img={event.img} 
+            key={`event--${event?.event?.id}`}
+            id={event?.event?.id}
+            name={event?.event?.name}
+            description={event?.event?.description}
+            date={event?.event?.date}
+            img={event?.event?.img} 
 
           />
           <button
           onClick={() => 
             {
+
+              const deleteFavorite  = async () => {
+              await fetch(`http://localhost:8088/favorites/${event.id}`, {
+                method: "DELETE"
+              })
+              .then(()=>  {
+                 
+              })
+              window.confirm("are you sure? ")
+
               const deleteFavorite = async () => {
               await fetch(`http://localhost:8088/favorites?userId=${userObject.id}&eventId=${event.id}`, {method: "DELETE"})
+
               window.location.reload(false)
             }
             deleteFavorite()

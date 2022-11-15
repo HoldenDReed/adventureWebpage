@@ -25,11 +25,7 @@
     border-radius: 15px;
     font-weight: bolder;
   }
-  .container--login {
-    background-image: url(https://cdn.dribbble.com/users/1705961/screenshots/4627101/ezgif.com-resize.gif) ;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+
   label {
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
     text-align: center;
