@@ -25,9 +25,7 @@
     border-radius: 15px;
     font-weight: bolder;
   }
-  body {
-    background-image: url(https://img.freepik.com/free-vector/color-seamless-space-pattern_102902-2360.jpg?w=1380&t=st=1668270878~exp=1668271478~hmac=e60d21126f66a2e4ad8fea5ca6f02a0195f0dc7f827485dae152399a136ddc47);
-  }
+
   label {
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
     text-align: center;
