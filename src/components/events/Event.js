@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./EventDetails.css"
+
 
 export const Event = ({ id, name, description, date, img }) => {
 

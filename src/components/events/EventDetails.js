@@ -9,6 +9,7 @@ export const EventDetails = () => {
   const localUser = localStorage.getItem("project_user");
   const userObject = JSON.parse(localUser);
   
+
   const [event, setEvent] = useState({})
   const [comments, updateComments] = useState([])
   const [users, setUsers] = useState([])
@@ -85,7 +86,6 @@ export const EventDetails = () => {
       });
   };
 
-
   return <section className="events">
 
     <header>{event?.name}</header>
@@ -100,6 +100,63 @@ export const EventDetails = () => {
     <div>Description:{event?.description}</div>
     <div>
       <img src ={event.img}></img>
+    </div>
+
+<div className="commentHeader">Comment section</div>
+    <form>
+    <div>
+      
+          <label htmlFor="descriptionBox">Comment:</label>
+          <div className="commentDescription">
+          <textarea
+            className="commentDescriptionBox"
+            required
+            autoFocus
+            type="text-area"
+            placeholder="Comment"
+            value={newComment.comment}
+            onChange={(evt) => {
+              const copy = { ...newComment };
+              copy.comment = evt.target.value;
+              update(copy);
+            }}
+          />
+        </div>
+      </div>
+      </form>
+
+    <button
+        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+        className="btn btn-primary"
+      >
+        Submit New Comment
+      </button>
+
+    <footer className="comments">
+      <div>
+        {comments.map((comment) => (
+          <div key={`comment--${comment.id}`} className="comment">
+            <div>{comment.datePosted}</div>
+            <div>{comment.user.fullName}</div>
+            <div>{comment.comment}</div>
+            {
+              userObject.id === comment.userId
+              ? <button
+                onClick={() => 
+                  {
+                    const deleteComment = async () => {
+                    await fetch(`http://localhost:8088/comments/${comment.id}`, {method: "DELETE"})
+                    window.location.reload(false)
+                  }
+                    deleteComment()
+                  }
+                }
+                className="btn btn-primary"
+              >Delete</button>
+              : ""
+            }
+          </div>
+        ))}
       </div>
 
   <h4>Comment section</h4>

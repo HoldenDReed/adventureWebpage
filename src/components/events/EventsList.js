@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Event } from "./Event";
 import { useParams } from "react-router-dom";
+import "./Events.css"
 export const EventsList = () => {
   const [events, setEvents] = useState([]);
   const {eventTypeId} = useParams()
@@ -19,8 +20,8 @@ export const EventsList = () => {
 
   return (
     <>
-      <article className="events">
         <h2>{events[0]?.eventCategories?.type}</h2>
+        <article className="events">
         {events.map((event) => (
           <Event
             key={`event--${event.id}`}
