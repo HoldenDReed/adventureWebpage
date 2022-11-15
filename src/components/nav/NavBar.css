@@ -14,7 +14,7 @@
  .navbar__item.navbar__logout{
     list-style-type: none;
     display: flex;
-    padding:  0px 1480px;
+    /* padding:  0px 1480px; */
     color: wheat;
   }
   .navbar__item.active { 
